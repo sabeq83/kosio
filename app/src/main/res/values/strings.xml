@@ -1,0 +1,193 @@
+<resources>
+    <string name="app_name">Kosio</string>
+    <string name="app_tagline">Food Cost &amp; Selling Price Calculator</string>
+    <string name="app_description">Calculate true production cost, profit margins, discounts, and marketplace fees offline.</string>
+
+    <!-- Navigation -->
+    <string name="nav_overview">Overview</string>
+    <string name="nav_products">Products</string>
+    <string name="nav_ingredients">Ingredients</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- General Actions -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_unarchive">Unarchive</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_duplicate">Duplicate</string>
+    <string name="action_add">Add</string>
+    <string name="action_search">Search…</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_calculate">Calculate</string>
+    <string name="action_share">Share</string>
+    <string name="action_simulate_pricing">Simulate Pricing</string>
+    <string name="action_update_price">Update Price</string>
+    <string name="action_add_ingredient">Add Ingredient</string>
+    <string name="action_create_product">Create Product</string>
+    <string name="action_get_started">Get Started</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_backup">Backup Data</string>
+    <string name="action_reset">Reset Data</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_copy_text">Copy Text</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Master Your Food Business Costing</string>
+    <string name="onboarding_subtitle">Accurate HPP / Cost of Goods, profit margins, and marketplace fee simulations right on your device.</string>
+    <string name="onboarding_offline_notice">100% Offline &amp; Private. Your recipe and pricing data never leaves this phone.</string>
+    <string name="onboarding_select_language">Language Preference</string>
+    <string name="onboarding_select_currency">Default Currency</string>
+
+    <!-- Overview / Dashboard -->
+    <string name="overview_title">Overview</string>
+    <string name="overview_quick_actions">Quick Actions</string>
+    <string name="overview_total_products">Total Products</string>
+    <string name="overview_total_ingredients">Total Ingredients</string>
+    <string name="overview_recent_calculations">Recent Calculations</string>
+    <string name="overview_needs_attention">Needs Attention</string>
+    <string name="overview_no_recent_calc">No recent calculations yet. Create a product and calculate its cost!</string>
+    <string name="overview_missing_price_warning">%1$d product(s) have ingredients with missing prices.</string>
+
+    <!-- Ingredients -->
+    <string name="ingredients_title">Ingredients</string>
+    <string name="ingredients_empty">No ingredients yet. Tap + to add your first raw ingredient or packaging item.</string>
+    <string name="ingredient_name">Ingredient Name</string>
+    <string name="ingredient_name_hint">e.g. Wheat Flour, Fresh Milk, Plastic Cup</string>
+    <string name="ingredient_category">Category (Optional)</string>
+    <string name="ingredient_category_hint">e.g. Dairy, Dry Goods, Packaging</string>
+    <string name="ingredient_unit_type">Unit Type</string>
+    <string name="unit_type_weight">Weight (g / kg)</string>
+    <string name="unit_type_volume">Volume (ml / l)</string>
+    <string name="unit_type_count">Count (pcs / units)</string>
+    <string name="purchase_price">Purchase Price</string>
+    <string name="purchase_quantity">Purchase Quantity</string>
+    <string name="purchase_unit">Purchase Unit</string>
+    <string name="base_unit">Base Unit</string>
+    <string name="waste_percentage">Waste / Shrinkage (%)</string>
+    <string name="waste_helper">Percentage of raw ingredient lost during prep (peeling, trimming, etc.)</string>
+    <string name="effective_unit_price">Effective Unit Price</string>
+    <string name="effective_unit_price_desc">Cost per base unit accounting for waste/shrinkage</string>
+    <string name="custom_pack_conversion">Package Conversion (e.g. 1 Box = 50 Pcs)</string>
+    <string name="custom_pack_quantity">Pack contains</string>
+    <string name="price_history">Price History</string>
+    <string name="used_in_products">Used in %1$d Product(s)</string>
+    <string name="cannot_delete_used_ingredient">This ingredient is used in %1$d active product(s). Archive it instead of deleting.</string>
+    <string name="ingredient_archived">Ingredient archived</string>
+
+    <!-- Products & Recipes -->
+    <string name="products_title">Products &amp; Recipes</string>
+    <string name="products_empty">No products yet. Create a recipe to calculate production costs and selling prices.</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_name_hint">e.g. Choco Lava Cake, Iced Latte 500ml</string>
+    <string name="product_category">Category (Optional)</string>
+    <string name="product_yield">Production Yield</string>
+    <string name="product_yield_hint">Portions/items produced per recipe batch</string>
+    <string name="product_yield_label">Portion Label</string>
+    <string name="product_yield_label_hint">e.g. pcs, box, cup, portion</string>
+    <string name="recipe_ingredients">Recipe Ingredients</string>
+    <string name="add_recipe_item">+ Add Ingredient</string>
+    <string name="select_ingredient">Select Ingredient</string>
+    <string name="amount_used">Amount Used</string>
+    <string name="packaging_cost">Additional Packaging Cost</string>
+    <string name="packaging_cost_helper">Boxes, stickers, cutlery per batch</string>
+    <string name="overhead_title">Overhead Costs</string>
+    <string name="overhead_per_batch">Overhead per Batch (Gas, Electricity, etc.)</string>
+    <string name="overhead_per_unit">Overhead per Unit (Labor, direct per portion)</string>
+    <string name="overhead_percentage">Overhead (% of Material Cost)</string>
+
+    <!-- HPP & Costing Breakdown -->
+    <string name="hpp_results_title">Cost Breakdown</string>
+    <string name="total_batch_cost">Total Batch Cost</string>
+    <string name="unit_cost">Production Cost / Unit</string>
+    <string name="ingredient_cost_total">Total Material Cost</string>
+    <string name="packaging_cost_total">Packaging Cost</string>
+    <string name="overhead_cost_total">Total Overhead</string>
+    <string name="batch_breakdown">Batch Breakdown</string>
+    <string name="unit_breakdown">Per Unit Breakdown</string>
+    <string name="save_snapshot">Save Snapshot</string>
+    <string name="snapshot_saved">Calculation snapshot saved to history</string>
+
+    <!-- Pricing Simulation -->
+    <string name="pricing_simulation_title">Pricing Simulation</string>
+    <string name="selling_price">Selling Price (List Price)</string>
+    <string name="discount_type">Discount</string>
+    <string name="discount_percent">Discount (%)</string>
+    <string name="discount_amount">Discount (Amount)</string>
+    <string name="marketplace_fee">Marketplace Fee (%)</string>
+    <string name="fixed_fee">Fixed Transaction Fee</string>
+    <string name="shipping_subsidy">Seller Shipping Subsidy</string>
+    <string name="extra_selling_costs">Other Selling Expenses</string>
+    <string name="target_margin_calc">Calculate from Target Margin</string>
+    <string name="target_margin">Target Margin (%)</string>
+    <string name="suggested_price">Suggested Selling Price</string>
+    <string name="net_revenue">Net Revenue</string>
+    <string name="profit_per_unit">Profit per Unit</string>
+    <string name="margin_percent">Profit Margin</string>
+    <string name="markup_percent">Markup</string>
+    <string name="loss_warning">Warning: Selling at a loss! Net revenue is below unit production cost.</string>
+    <string name="save_scenario">Save Scenario</string>
+    <string name="scenario_saved">Pricing scenario saved</string>
+
+    <!-- History -->
+    <string name="history_title">Calculation History</string>
+    <string name="history_empty">No snapshot history recorded for this product yet.</string>
+    <string name="snapshot_date">Saved on %1$s</string>
+
+    <!-- Share -->
+    <string name="share_title">Share Cost Summary</string>
+    <string name="share_compact">Compact Summary</string>
+    <string name="share_detailed">Detailed Breakdown</string>
+    <string name="share_via_apps">Share via Apps</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Language / Bahasa</string>
+    <string name="settings_language_system">Follow System</string>
+    <string name="settings_language_id">Bahasa Indonesia</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_currency">Currency</string>
+    <string name="settings_currency_idr">IDR (Rp)</string>
+    <string name="settings_currency_usd">USD ($)</string>
+    <string name="settings_rounding">Rounding Rule</string>
+    <string name="rounding_none">No Rounding (Exact)</string>
+    <string name="rounding_up_100">Round Up to 100</string>
+    <string name="rounding_up_500">Round Up to 500</string>
+    <string name="rounding_up_1000">Round Up to 1,000</string>
+    <string name="settings_backup_restore">Backup &amp; Restore</string>
+    <string name="settings_backup_desc">Export or restore your recipe and pricing database file.</string>
+    <string name="settings_reset_data">Reset All Data</string>
+    <string name="settings_reset_desc">Permanently wipe all ingredients, products, and history.</string>
+    <string name="settings_about">About Kosio</string>
+    <string name="settings_privacy">Privacy Policy</string>
+    <string name="version_format">Version %1$s</string>
+
+    <!-- Backup & Restore Screen -->
+    <string name="backup_restore_title">Backup &amp; Restore</string>
+    <string name="backup_export_btn">Create Backup File (.json)</string>
+    <string name="backup_export_desc">Save a timestamped backup containing all your ingredients, recipes, and calculations.</string>
+    <string name="restore_import_btn">Restore from File</string>
+    <string name="restore_import_desc">Restore database from a previously exported Kosio backup file.</string>
+    <string name="restore_warning">Restoring will replace current data. Please make a backup first if needed.</string>
+    <string name="restore_success">Data restored successfully! %1$d ingredients and %2$d products loaded.</string>
+    <string name="restore_failed">Failed to restore: Invalid or corrupted backup file.</string>
+    <string name="backup_success">Backup file exported successfully.</string>
+    <string name="backup_failed">Backup export failed.</string>
+
+    <!-- Confirmations & Errors -->
+    <string name="dialog_confirm_delete_title">Confirm Deletion</string>
+    <string name="dialog_confirm_delete_message">Are you sure you want to permanently delete \"%1$s\"? This cannot be undone.</string>
+    <string name="dialog_confirm_reset_title">Reset Everything?</string>
+    <string name="dialog_confirm_reset_message">All ingredients, recipes, and calculation history will be permanently deleted. This action cannot be reversed.</string>
+    <string name="error_required_field">This field is required</string>
+    <string name="error_invalid_number">Please enter a valid positive number</string>
+    <string name="error_waste_limit">Waste percentage must be less than 100%</string>
+    <string name="error_target_margin_limit">Target margin must be less than 100%</string>
+    <string name="error_yield_zero">Yield must be greater than 0</string>
+    <string name="error_incompatible_units">Cannot convert %1$s to %2$s. Ensure units share the same dimension.</string>
+    <string name="error_no_ingredients">Please add at least one ingredient to the recipe</string>
+</resources>

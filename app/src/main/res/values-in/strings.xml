@@ -1,0 +1,193 @@
+<resources>
+    <string name="app_name">Kosio</string>
+    <string name="app_tagline">Kalkulator HPP &amp; Harga Jual Kuliner</string>
+    <string name="app_description">Hitung modal HPP sebenarnya, margin laba, diskon promo, dan potongan marketplace secara offline.</string>
+
+    <!-- Navigation -->
+    <string name="nav_overview">Beranda</string>
+    <string name="nav_products">Produk</string>
+    <string name="nav_ingredients">Bahan</string>
+    <string name="nav_settings">Pengaturan</string>
+
+    <!-- General Actions -->
+    <string name="action_save">Simpan</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_delete">Hapus</string>
+    <string name="action_archive">Arsipkan</string>
+    <string name="action_unarchive">Aktifkan Kembali</string>
+    <string name="action_edit">Ubah</string>
+    <string name="action_duplicate">Duplikasi</string>
+    <string name="action_add">Tambah</string>
+    <string name="action_search">Cari…</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_close">Tutup</string>
+    <string name="action_back">Kembali</string>
+    <string name="action_calculate">Hitung</string>
+    <string name="action_share">Bagikan</string>
+    <string name="action_simulate_pricing">Simulasi Harga</string>
+    <string name="action_update_price">Perbarui Harga</string>
+    <string name="action_add_ingredient">Tambah Bahan</string>
+    <string name="action_create_product">Buat Produk</string>
+    <string name="action_get_started">Mulai Sekarang</string>
+    <string name="action_restore">Pulihkan Data</string>
+    <string name="action_backup">Cadangkan Data</string>
+    <string name="action_reset">Reset Data</string>
+    <string name="action_confirm">Konfirmasi</string>
+    <string name="action_copy_text">Salin Teks</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Kuasai Hitungan Biaya Usaha Kulinermu</string>
+    <string name="onboarding_subtitle">Hitung HPP modal bahan, margin keuntungan, dan simulasi potongan marketplace langsung di ponselmu.</string>
+    <string name="onboarding_offline_notice">100% Offline &amp; Privat. Data resep dan perhitungan tidak pernah dikirim ke luar perangkat.</string>
+    <string name="onboarding_select_language">Pilihan Bahasa</string>
+    <string name="onboarding_select_currency">Mata Uang Utama</string>
+
+    <!-- Overview / Dashboard -->
+    <string name="overview_title">Beranda</string>
+    <string name="overview_quick_actions">Aksi Cepat</string>
+    <string name="overview_total_products">Total Produk</string>
+    <string name="overview_total_ingredients">Total Bahan</string>
+    <string name="overview_recent_calculations">Kalkulasi Terbaru</string>
+    <string name="overview_needs_attention">Perlu Perhatian</string>
+    <string name="overview_no_recent_calc">Belum ada kalkulasi terbaru. Buat produk dan hitung HPP sekarang!</string>
+    <string name="overview_missing_price_warning">%1$d produk memiliki bahan yang belum diberi harga beli.</string>
+
+    <!-- Ingredients -->
+    <string name="ingredients_title">Bahan Baku</string>
+    <string name="ingredients_empty">Belum ada bahan. Tekan + untuk menambahkan bahan mentah atau kemasan pertama.</string>
+    <string name="ingredient_name">Nama Bahan</string>
+    <string name="ingredient_name_hint">contoh: Tepung Terigu, Susu Segar, Cup Plastik</string>
+    <string name="ingredient_category">Kategori (Opsional)</string>
+    <string name="ingredient_category_hint">contoh: Bahan Kering, Dairy, Kemasan</string>
+    <string name="ingredient_unit_type">Jenis Satuan</string>
+    <string name="unit_type_weight">Berat (g / kg)</string>
+    <string name="unit_type_volume">Volume (ml / liter)</string>
+    <string name="unit_type_count">Jumlah (pcs / butir)</string>
+    <string name="purchase_price">Harga Pembelian</string>
+    <string name="purchase_quantity">Jumlah Pembelian</string>
+    <string name="purchase_unit">Satuan Beli</string>
+    <string name="base_unit">Satuan Dasar</string>
+    <string name="waste_percentage">Bahan Terbuang / Susut (%)</string>
+    <string name="waste_helper">Persentase bahan yang terbuang saat dikupas, dipotong, atau susut olah.</string>
+    <string name="effective_unit_price">Harga Efektif per Satuan</string>
+    <string name="effective_unit_price_desc">Harga modal per unit dasar setelah memperhitungkan susut/waste.</string>
+    <string name="custom_pack_conversion">Konversi Kemasan (misal 1 Dus = 50 Pcs)</string>
+    <string name="custom_pack_quantity">Isi per kemasan</string>
+    <string name="price_history">Riwayat Harga</string>
+    <string name="used_in_products">Dipakai di %1$d Produk</string>
+    <string name="cannot_delete_used_ingredient">Bahan ini masih dipakai di %1$d produk aktif. Gunakan arsip bila tidak lagi dibeli.</string>
+    <string name="ingredient_archived">Bahan berhasil diarsipkan</string>
+
+    <!-- Products & Recipes -->
+    <string name="products_title">Produk &amp; Formula</string>
+    <string name="products_empty">Belum ada produk. Buat resep untuk menghitung HPP produksi dan harga jual.</string>
+    <string name="product_name">Nama Produk</string>
+    <string name="product_name_hint">contoh: Choco Lava Cake, Es Kopi Susu 500ml</string>
+    <string name="product_category">Kategori (Opsional)</string>
+    <string name="product_yield">Hasil Produksi (Yield)</string>
+    <string name="product_yield_hint">Jumlah porsi/pcs yang dihasilkan dalam 1 kali masak (batch)</string>
+    <string name="product_yield_label">Satuan Porsi</string>
+    <string name="product_yield_label_hint">contoh: porsi, pcs, cup, box, toples</string>
+    <string name="recipe_ingredients">Daftar Bahan Formula</string>
+    <string name="add_recipe_item">+ Tambah Bahan ke Resep</string>
+    <string name="select_ingredient">Pilih Bahan</string>
+    <string name="amount_used">Jumlah Pemakaian</string>
+    <string name="packaging_cost">Biaya Kemasan Tambahan</string>
+    <string name="packaging_cost_helper">Box, stiker segel, sendok per batch</string>
+    <string name="overhead_title">Biaya Operasional (Overhead)</string>
+    <string name="overhead_per_batch">Biaya per Batch (Gas, Listrik, Air)</string>
+    <string name="overhead_per_unit">Biaya per Porsi (Tenaga Kerja langsung)</string>
+    <string name="overhead_percentage">Overhead (% dari Biaya Bahan)</string>
+
+    <!-- HPP & Costing Breakdown -->
+    <string name="hpp_results_title">Rincian HPP</string>
+    <string name="total_batch_cost">Total Modal 1 Batch</string>
+    <string name="unit_cost">HPP Modal per Porsi</string>
+    <string name="ingredient_cost_total">Total Biaya Bahan Baku</string>
+    <string name="packaging_cost_total">Biaya Kemasan</string>
+    <string name="overhead_cost_total">Total Biaya Overhead</string>
+    <string name="batch_breakdown">Rincian Biaya per Batch</string>
+    <string name="unit_breakdown">Rincian Biaya per Satuan</string>
+    <string name="save_snapshot">Simpan Hasil Hitungan</string>
+    <string name="snapshot_saved">Snapshot perhitungan berhasil disimpan ke riwayat</string>
+
+    <!-- Pricing Simulation -->
+    <string name="pricing_simulation_title">Simulasi Harga Jual</string>
+    <string name="selling_price">Harga Jual (Harga Menu)</string>
+    <string name="discount_type">Diskon Promo</string>
+    <string name="discount_percent">Diskon (%)</string>
+    <string name="discount_amount">Diskon (Nominal)</string>
+    <string name="marketplace_fee">Potongan Marketplace (%)</string>
+    <string name="fixed_fee">Biaya Transaksi Tetap</string>
+    <string name="shipping_subsidy">Subsidi Ongkir Seller</string>
+    <string name="extra_selling_costs">Biaya Penjualan Lainnya</string>
+    <string name="target_margin_calc">Hitung dari Target Margin</string>
+    <string name="target_margin">Target Margin (%)</string>
+    <string name="suggested_price">Rekomendasi Harga Jual</string>
+    <string name="net_revenue">Pendapatan Bersih</string>
+    <string name="profit_per_unit">Laba Bersih per Satuan</string>
+    <string name="margin_percent">Margin Keuntungan</string>
+    <string name="markup_percent">Markup</string>
+    <string name="loss_warning">Peringatan Rugi: Pendapatan bersih berada di bawah HPP modal produksi!</string>
+    <string name="save_scenario">Simpan Skenario</string>
+    <string name="scenario_saved">Skenario harga berhasil disimpan</string>
+
+    <!-- History -->
+    <string name="history_title">Riwayat Kalkulasi</string>
+    <string name="history_empty">Belum ada riwayat snapshot perhitungan untuk produk ini.</string>
+    <string name="snapshot_date">Disimpan pada %1$s</string>
+
+    <!-- Share -->
+    <string name="share_title">Bagikan Ringkasan HPP</string>
+    <string name="share_compact">Ringkasan Singkat</string>
+    <string name="share_detailed">Rincian Lengkap</string>
+    <string name="share_via_apps">Bagikan Lewat Aplikasi</string>
+    <string name="copied_to_clipboard">Teks berhasil disalin ke papan klip</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_language">Bahasa / Language</string>
+    <string name="settings_language_system">Ikuti Sistem</string>
+    <string name="settings_language_id">Bahasa Indonesia</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_currency">Mata Uang</string>
+    <string name="settings_currency_idr">IDR (Rp)</string>
+    <string name="settings_currency_usd">USD ($)</string>
+    <string name="settings_rounding">Aturan Pembulatan Harga</string>
+    <string name="rounding_none">Tanpa Pembulatan (Tepat)</string>
+    <string name="rounding_up_100">Bulatkan ke Atas 100</string>
+    <string name="rounding_up_500">Bulatkan ke Atas 500</string>
+    <string name="rounding_up_1000">Bulatkan ke Atas 1.000</string>
+    <string name="settings_backup_restore">Cadangkan &amp; Pulihkan</string>
+    <string name="settings_backup_desc">Ekspor atau pulihkan file database resep dan perhitungan.</string>
+    <string name="settings_reset_data">Reset Seluruh Data</string>
+    <string name="settings_reset_desc">Hapus permanen semua bahan, produk, dan riwayat kalkulasi.</string>
+    <string name="settings_about">Tentang Kosio</string>
+    <string name="settings_privacy">Kebijakan Privasi</string>
+    <string name="version_format">Versi %1$s</string>
+
+    <!-- Backup & Restore Screen -->
+    <string name="backup_restore_title">Cadangkan &amp; Pulihkan</string>
+    <string name="backup_export_btn">Buat File Cadangan (.json)</string>
+    <string name="backup_export_desc">Simpan cadangan bertanggal yang memuat semua data bahan, formula, dan kalkulasi Anda.</string>
+    <string name="restore_import_btn">Pulihkan dari File</string>
+    <string name="restore_import_desc">Pulihkan database dari file cadangan Kosio yang telah diekspor sebelumnya.</string>
+    <string name="restore_warning">Memulihkan data akan menggantikan data aktif saat ini. Buat cadangan terlebih dahulu jika perlu.</string>
+    <string name="restore_success">Data berhasil dipulihkan! %1$d bahan dan %2$d produk dimuat.</string>
+    <string name="restore_failed">Gagal memulihkan: Format file cadangan tidak valid atau rusak.</string>
+    <string name="backup_success">File cadangan berhasil diekspor.</string>
+    <string name="backup_failed">Gagal mengekspor file cadangan.</string>
+
+    <!-- Confirmations & Errors -->
+    <string name="dialog_confirm_delete_title">Konfirmasi Hapus</string>
+    <string name="dialog_confirm_delete_message">Apakah Anda yakin ingin menghapus permanen \"%1$s\"? Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="dialog_confirm_reset_title">Hapus Semua Data?</string>
+    <string name="dialog_confirm_reset_message">Seluruh data bahan, produk, dan riwayat perhitungan akan dihapus permanen. Tindakan ini tidak bisa dipulihkan.</string>
+    <string name="error_required_field">Kolom ini wajib diisi</string>
+    <string name="error_invalid_number">Masukkan angka positif yang valid</string>
+    <string name="error_waste_limit">Persentase susut/waste harus kurang dari 100%</string>
+    <string name="error_target_margin_limit">Target margin harus kurang dari 100%</string>
+    <string name="error_yield_zero">Hasil produksi (yield) harus lebih dari 0</string>
+    <string name="error_incompatible_units">Tidak dapat mengonversi %1$s ke %2$s. Pastikan dimensi satuan sama.</string>
+    <string name="error_no_ingredients">Tambahkan minimal satu bahan ke dalam resep</string>
+</resources>
