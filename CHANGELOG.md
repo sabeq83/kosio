@@ -17,6 +17,11 @@ Format dokumen ini mengacu pada [Keep a Changelog](https://keepachangelog.com/id
 
 ## [1.2.0] - 2026-10-11
 ### Ditambahkan
+- **Integrasi Google AdMob & Monetisasi Cerdas**:
+  - **Sistem Rewarded Video OCR**: Kuota harian bawaan 3x scan gratis per hari + bonus +3 scan gratis dengan menonton video 15 detik.
+  - **Native In-Feed Card**: Iklan bermitra perlengkapan F&B yang menyatu di dalam daftar resep tanpa mengganggu navigasi.
+  - **Smart Interstitial**: Iklan pasca-simpan resep dengan batasan interval ketat (*Frequency Capping 10 menit*).
+  - 100% bebas *Sticky Banner* agar layar tetap bersih, cepat, dan nyaman.
 - **Scan Struk Belanja Otomatis (OCR Kamera)**:
   - Integrasi Google ML Kit Text Recognition (`com.google.mlkit:text-recognition:16.0.1`) 100% on-device & offline.
   - Parser cerdas struk belanja minimarket & supermarket Indonesia (Indomaret, Alfamart, Hypermart, Toko Bahan Kue).

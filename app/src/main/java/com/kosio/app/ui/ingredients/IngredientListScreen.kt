@@ -231,13 +231,44 @@ fun IngredientListScreen(
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
+    val quotaState by com.kosio.app.KosioApplication.instance.ocrQuotaManager.quotaState.collectAsState()
+    var showQuotaExhaustedDialog by remember { mutableStateOf(false) }
+
+    if (showQuotaExhaustedDialog) {
+        com.kosio.app.ui.ads.OcrQuotaExhaustedDialog(
+            quotaState = quotaState,
+            onDismiss = { showQuotaExhaustedDialog = false },
+            onRewardEarned = {
+                com.kosio.app.KosioApplication.instance.ocrQuotaManager.addBonusQuota(3)
+                showQuotaExhaustedDialog = false
+                onNavigateToScanReceipt()
+            }
+        )
+    }
+
     Scaffold(
         topBar = {
             KosioTopAppBar(
                 title = stringResource(R.string.ingredients_title),
                 subtitle = stringResource(R.string.nav_ingredients),
                 actions = {
-                    IconButton(onClick = onNavigateToScanReceipt) {
+                    com.kosio.app.ui.ads.OcrQuotaBadge(
+                        totalAvailable = quotaState.totalAvailable,
+                        onClick = {
+                            if (quotaState.totalAvailable > 0) {
+                                onNavigateToScanReceipt()
+                            } else {
+                                showQuotaExhaustedDialog = true
+                            }
+                        }
+                    )
+                    IconButton(onClick = {
+                        if (quotaState.totalAvailable > 0) {
+                            onNavigateToScanReceipt()
+                        } else {
+                            showQuotaExhaustedDialog = true
+                        }
+                    }) {
                         Icon(Icons.Default.CameraAlt, contentDescription = "Scan Struk", tint = DeepIndigo)
                     }
                     if (ingredients.isNotEmpty()) {

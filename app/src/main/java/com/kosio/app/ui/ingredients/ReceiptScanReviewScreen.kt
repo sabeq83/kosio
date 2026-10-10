@@ -110,43 +110,52 @@ fun ReceiptScanReviewScreen(
 
     var tempCameraUri by remember { mutableStateOf<Uri?>(null) }
 
-    val processImageUri = { uri: Uri ->
-        scope.launch {
-            isScanning = true
-            try {
-                val result = withContext(Dispatchers.IO) {
-                    ReceiptOcrScanner.scanReceiptFromUri(context, uri)
-                }
-                parsedResult = result
-                scannedItems.clear()
-                scannedItems.addAll(result.items.map { item ->
-                    // Match with existing ingredient by name similarity
-                    val matched = existingIngredients.firstOrNull {
-                        it.name.equals(item.name, ignoreCase = true) ||
-                                it.name.contains(item.name, ignoreCase = true) ||
-                                item.name.contains(it.name, ignoreCase = true)
-                    }
-                    if (matched != null) {
-                        item.copy(
-                            matchedIngredientId = matched.id,
-                            unitDimension = matched.unitDimension,
-                            purchaseUnit = matched.purchaseUnit,
-                            baseUnit = matched.baseUnit
-                        )
-                    } else {
-                        item
-                    }
-                })
+    val ocrQuotaManager = com.kosio.app.KosioApplication.instance.ocrQuotaManager
+    val quotaState by ocrQuotaManager.quotaState.collectAsState()
+    var showQuotaExhaustedDialog by remember { mutableStateOf(false) }
 
-                if (result.items.isEmpty()) {
-                    snackbarHostState.showSnackbar("Tidak menemukan rincian barang belanja pada gambar.")
-                } else {
-                    snackbarHostState.showSnackbar("Berhasil mendeteksi ${result.items.size} bahan belanjaan.")
+    val processImageUri = { uri: Uri ->
+        if (!ocrQuotaManager.hasAvailableQuota()) {
+            showQuotaExhaustedDialog = true
+        } else {
+            ocrQuotaManager.consumeQuota()
+            scope.launch {
+                isScanning = true
+                try {
+                    val result = withContext(Dispatchers.IO) {
+                        ReceiptOcrScanner.scanReceiptFromUri(context, uri)
+                    }
+                    parsedResult = result
+                    scannedItems.clear()
+                    scannedItems.addAll(result.items.map { item ->
+                        // Match with existing ingredient by name similarity
+                        val matched = existingIngredients.firstOrNull {
+                            it.name.equals(item.name, ignoreCase = true) ||
+                                    it.name.contains(item.name, ignoreCase = true) ||
+                                    item.name.contains(it.name, ignoreCase = true)
+                        }
+                        if (matched != null) {
+                            item.copy(
+                                matchedIngredientId = matched.id,
+                                unitDimension = matched.unitDimension,
+                                purchaseUnit = matched.purchaseUnit,
+                                baseUnit = matched.baseUnit
+                            )
+                        } else {
+                            item
+                        }
+                    })
+
+                    if (result.items.isEmpty()) {
+                        snackbarHostState.showSnackbar("Tidak menemukan rincian barang belanja pada gambar.")
+                    } else {
+                        snackbarHostState.showSnackbar("Berhasil mendeteksi ${result.items.size} bahan belanjaan.")
+                    }
+                } catch (e: Exception) {
+                    snackbarHostState.showSnackbar("Gagal memproses gambar: ${e.message}")
+                } finally {
+                    isScanning = false
                 }
-            } catch (e: Exception) {
-                snackbarHostState.showSnackbar("Gagal memproses gambar: ${e.message}")
-            } finally {
-                isScanning = false
             }
         }
     }
@@ -167,13 +176,34 @@ fun ReceiptScanReviewScreen(
         }
     }
 
+    if (showQuotaExhaustedDialog) {
+        com.kosio.app.ui.ads.OcrQuotaExhaustedDialog(
+            quotaState = quotaState,
+            onDismiss = { showQuotaExhaustedDialog = false },
+            onRewardEarned = {
+                ocrQuotaManager.addBonusQuota(3)
+                showQuotaExhaustedDialog = false
+            }
+        )
+    }
+
     Scaffold(
         topBar = {
             KosioTopAppBar(
                 title = "Scan Struk Belanja (OCR)",
                 subtitle = "Ekstrak otomatis harga beli bahan",
                 navigationIcon = Icons.Default.ArrowBack,
-                onNavigationClick = onNavigateBack
+                onNavigationClick = onNavigateBack,
+                actions = {
+                    com.kosio.app.ui.ads.OcrQuotaBadge(
+                        totalAvailable = quotaState.totalAvailable,
+                        onClick = {
+                            if (quotaState.totalAvailable == 0) {
+                                showQuotaExhaustedDialog = true
+                            }
+                        }
+                    )
+                }
             )
         },
         bottomBar = {

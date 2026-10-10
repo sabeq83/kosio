@@ -99,6 +99,9 @@ dependencies {
     // Google ML Kit Text Recognition (100% On-Device & Offline)
     implementation("com.google.mlkit:text-recognition:16.0.1")
 
+    // Google Mobile Ads (AdMob)
+    implementation("com.google.android.gms:play-services-ads:23.3.0")
+
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)

@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -327,12 +328,19 @@ fun ProductListScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    items(products, key = { it.product.id }) { item ->
+                    itemsIndexed(products, key = { _, it -> it.product.id }) { index, item ->
                         ProductListItemCard(
                             item = item,
                             currency = currency,
                             onClick = { onNavigateToDetail(item.product.id) }
                         )
+
+                        // Insert In-Feed Native Ad Card at position 3
+                        if (index == 2 && products.size >= 3) {
+                            Spacer(modifier = Modifier.height(6.dp))
+                            com.kosio.app.ui.ads.KosioNativeAdCard()
+                            Spacer(modifier = Modifier.height(6.dp))
+                        }
                     }
                 }
             }

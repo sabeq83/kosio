@@ -31,6 +31,9 @@ class KosioApplication : Application() {
     lateinit var backupManager: BackupManager
         private set
 
+    lateinit var ocrQuotaManager: com.kosio.app.data.ads.OcrQuotaManager
+        private set
+
     override fun onCreate() {
         super.onCreate()
         instance = this
@@ -40,6 +43,10 @@ class KosioApplication : Application() {
         productRepository = ProductRepositoryImpl(database)
         snapshotRepository = SnapshotRepositoryImpl(database)
         backupManager = BackupManager(database)
+        ocrQuotaManager = com.kosio.app.data.ads.OcrQuotaManager(this)
+
+        // Initialize Google Mobile Ads SDK (AdMob)
+        com.kosio.app.data.ads.AdMobManager.initialize(this)
     }
 
     companion object {

@@ -119,6 +119,7 @@ fun ProductFormScreen(
 ) {
     val userPrefs by viewModel.currency.collectAsState()
     val currency = userPrefs?.currency ?: CurrencyCode.IDR
+    val context = LocalContext.current
 
     var name by remember { mutableStateOf("") }
     var category by remember { mutableStateOf("") }
@@ -195,7 +196,14 @@ fun ProductFormScreen(
                     overheadPercent = BigDecimal(overheadPercentStr.ifEmpty { "0" }),
                     recipeItems = items,
                     onSuccess = { savedId ->
-                        onSavedAndNavigateToHpp(savedId)
+                        val activity = context as? android.app.Activity
+                        if (activity != null) {
+                            com.kosio.app.data.ads.AdMobManager.showInterstitialIfEligible(activity) {
+                                onSavedAndNavigateToHpp(savedId)
+                            }
+                        } else {
+                            onSavedAndNavigateToHpp(savedId)
+                        }
                     }
                 )
             }
