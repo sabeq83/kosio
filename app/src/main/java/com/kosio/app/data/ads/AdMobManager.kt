@@ -21,6 +21,7 @@ object AdMobManager {
     const val TEST_REWARDED_AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917"
     const val TEST_INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
     const val TEST_NATIVE_AD_UNIT_ID = "ca-app-pub-3940256099942544/2247696110"
+    const val TEST_BANNER_AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741"
 
     // Frequency capping: 10 minutes (in milliseconds)
     private const val INTERSTITIAL_MIN_INTERVAL_MS = 10 * 60 * 1000L

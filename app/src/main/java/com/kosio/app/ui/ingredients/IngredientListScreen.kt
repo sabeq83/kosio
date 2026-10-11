@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -91,6 +92,7 @@ import com.kosio.app.core.designsystem.PrimaryIndigo
 import com.kosio.app.core.designsystem.PureWhiteSurface
 import com.kosio.app.core.designsystem.SuccessTeal
 import com.kosio.app.core.designsystem.WarmIvoryBackground
+import com.kosio.app.ui.ads.KosioAdaptiveBannerCard
 import com.kosio.app.data.preferences.UserPreferencesRepository
 import com.kosio.app.domain.calculation.HppCalculator
 import com.kosio.app.domain.model.CurrencyCode
@@ -362,12 +364,18 @@ fun IngredientListScreen(
                     contentPadding = PaddingValues(16.dp),
                     verticalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    items(ingredients, key = { it.id }) { ingredient ->
+                    itemsIndexed(ingredients, key = { _, it -> it.id }) { index, ingredient ->
                         IngredientListItemCard(
                             ingredient = ingredient,
                             currency = currency,
                             onClick = { onNavigateToDetail(ingredient.id) }
                         )
+
+                        // Insert In-Line Adaptive Banner Ad after item 3
+                        if (index == 2 && ingredients.size >= 3) {
+                            Spacer(modifier = Modifier.height(4.dp))
+                            KosioAdaptiveBannerCard()
+                        }
                     }
                 }
             }

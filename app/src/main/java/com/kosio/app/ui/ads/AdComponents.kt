@@ -1,6 +1,8 @@
 package com.kosio.app.ui.ads
 
 import android.app.Activity
+import android.util.Log
+import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -33,6 +35,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.viewinterop.AndroidView
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -365,6 +377,100 @@ fun KosioNativeAdCard(
                     text = "Lihat Rekomendasi Partner",
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold)
                 )
+            }
+        }
+    }
+}
+
+/**
+ * In-Line Adaptive Banner Card embedded within ingredient list LazyColumn.
+ * Compliant with AdMob policies: clear "IKLAN" label and clean container styling.
+ */
+@Composable
+fun KosioAdaptiveBannerCard(
+    modifier: Modifier = Modifier,
+    adUnitId: String = AdMobManager.TEST_BANNER_AD_UNIT_ID
+) {
+    var isAdFailed by remember { mutableStateOf(false) }
+
+    if (!isAdFailed) {
+        Surface(
+            modifier = modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(16.dp),
+            color = PureWhiteSurface,
+            border = androidx.compose.foundation.BorderStroke(1.dp, BorderSubtle),
+            shadowElevation = 0.dp
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 12.dp, horizontal = 8.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp, vertical = 2.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Rekomendasi Supplier & Bisnis",
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            color = CharcoalTextSecondary,
+                            fontWeight = FontWeight.Medium
+                        )
+                    )
+                    Surface(
+                        shape = RoundedCornerShape(4.dp),
+                        color = CharcoalTextMuted.copy(alpha = 0.15f)
+                    ) {
+                        Text(
+                            text = "IKLAN",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 9.sp,
+                                color = CharcoalTextSecondary
+                            ),
+                            modifier = Modifier.padding(horizontal = 5.dp, vertical = 2.dp)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AndroidView(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        factory = { ctx ->
+                            AdView(ctx).apply {
+                                setAdSize(AdSize.BANNER)
+                                setAdUnitId(adUnitId)
+                                layoutParams = ViewGroup.LayoutParams(
+                                    ViewGroup.LayoutParams.MATCH_PARENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT
+                                )
+                                adListener = object : AdListener() {
+                                    override fun onAdLoaded() {
+                                        Log.d("AdMobBanner", "Banner loaded successfully")
+                                    }
+                                    override fun onAdFailedToLoad(error: LoadAdError) {
+                                        Log.e("AdMobBanner", "Banner failed to load: ${error.message}")
+                                        isAdFailed = true
+                                    }
+                                }
+                                loadAd(AdRequest.Builder().build())
+                            }
+                        }
+                    )
+                }
             }
         }
     }
