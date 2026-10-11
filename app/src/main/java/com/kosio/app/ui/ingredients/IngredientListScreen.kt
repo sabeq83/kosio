@@ -251,6 +251,7 @@ fun IngredientListScreen(
             KosioTopAppBar(
                 title = stringResource(R.string.ingredients_title),
                 subtitle = stringResource(R.string.nav_ingredients),
+                showBrandLogo = true,
                 actions = {
                     com.kosio.app.ui.ads.OcrQuotaBadge(
                         totalAvailable = quotaState.totalAvailable,

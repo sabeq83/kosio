@@ -132,7 +132,8 @@ fun OverviewScreen(
         topBar = {
             KosioTopAppBar(
                 title = stringResource(R.string.app_name),
-                subtitle = stringResource(R.string.app_tagline)
+                subtitle = stringResource(R.string.app_tagline),
+                showBrandLogo = true
             )
         },
         containerColor = WarmIvoryBackground

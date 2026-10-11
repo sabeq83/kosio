@@ -260,7 +260,8 @@ fun ProductListScreen(
         topBar = {
             KosioTopAppBar(
                 title = stringResource(R.string.products_title),
-                subtitle = stringResource(R.string.nav_products)
+                subtitle = stringResource(R.string.nav_products),
+                showBrandLogo = true
             )
         },
         floatingActionButton = {

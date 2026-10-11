@@ -78,27 +78,46 @@ fun KosioTopAppBar(
     subtitle: String? = null,
     navigationIcon: ImageVector? = null,
     onNavigationClick: (() -> Unit)? = null,
+    showBrandLogo: Boolean = false,
+    containerColor: Color = PureWhiteSurface,
+    contentColor: Color = CharcoalText,
     actions: @Composable () -> Unit = {}
 ) {
     TopAppBar(
         title = {
-            Column {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        color = CharcoalText
-                    ),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-                if (subtitle != null) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (showBrandLogo) {
+                    androidx.compose.foundation.Image(
+                        painter = androidx.compose.ui.res.painterResource(R.drawable.ic_kosio_logo),
+                        contentDescription = "Kosio Logo",
+                        modifier = Modifier
+                            .size(32.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                }
+                Column {
                     Text(
-                        text = subtitle,
-                        style = MaterialTheme.typography.bodySmall.copy(color = CharcoalTextSecondary),
+                        text = title,
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontWeight = FontWeight.Bold,
+                            color = contentColor
+                        ),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
+                    if (subtitle != null) {
+                        Text(
+                            text = subtitle,
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = if (contentColor == PureWhiteSurface) PureWhiteSurface.copy(alpha = 0.8f) else CharcoalTextSecondary
+                            ),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
                 }
             }
         },
@@ -108,15 +127,16 @@ fun KosioTopAppBar(
                     Icon(
                         imageVector = navigationIcon,
                         contentDescription = stringResource(R.string.action_back),
-                        tint = DeepIndigo
+                        tint = if (containerColor == PureWhiteSurface) DeepIndigo else PureWhiteSurface
                     )
                 }
             }
         },
         actions = { actions() },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = PureWhiteSurface,
-            titleContentColor = CharcoalText
+            containerColor = containerColor,
+            titleContentColor = contentColor,
+            actionIconContentColor = if (containerColor == PureWhiteSurface) CharcoalText else PureWhiteSurface
         )
     )
 }

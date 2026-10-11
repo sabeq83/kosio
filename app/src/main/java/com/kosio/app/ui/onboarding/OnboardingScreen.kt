@@ -1,7 +1,9 @@
 package com.kosio.app.ui.onboarding
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -119,22 +121,13 @@ fun OnboardingScreen(
                 Spacer(modifier = Modifier.height(32.dp))
 
                 // App Brand Badge
-                Box(
+                Image(
+                    painter = painterResource(R.drawable.ic_kosio_logo),
+                    contentDescription = "Kosio Logo",
                     modifier = Modifier
-                        .size(72.dp)
+                        .size(80.dp)
                         .clip(RoundedCornerShape(20.dp))
-                        .background(DeepIndigo),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "K",
-                        color = PureWhiteSurface,
-                        style = MaterialTheme.typography.headlineLarge.copy(
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 36.sp
-                        )
-                    )
-                }
+                )
 
                 Spacer(modifier = Modifier.height(20.dp))
 

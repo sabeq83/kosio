@@ -6,8 +6,10 @@ import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -175,7 +177,8 @@ fun SettingsScreen(
         topBar = {
             KosioTopAppBar(
                 title = stringResource(R.string.settings_title),
-                subtitle = stringResource(R.string.nav_settings)
+                subtitle = stringResource(R.string.nav_settings),
+                showBrandLogo = true
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -507,22 +510,13 @@ fun AboutScreen(onNavigateBack: () -> Unit) {
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            Box(
+            Image(
+                painter = painterResource(R.drawable.ic_kosio_logo),
+                contentDescription = "Kosio Logo",
                 modifier = Modifier
-                    .size(80.dp)
+                    .size(88.dp)
                     .clip(RoundedCornerShape(22.dp))
-                    .background(DeepIndigo),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "K",
-                    color = PureWhiteSurface,
-                    style = MaterialTheme.typography.headlineLarge.copy(
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 42.sp
-                    )
-                )
-            }
+            )
 
             Text(
                 text = "Kosio",
